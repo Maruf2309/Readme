@@ -173,6 +173,131 @@ Activation functions are critical to the success of neural networks. They introd
 
 
 
+<h1>Active Learning</h1>
+<h2>Active Learning in Machine Learning</h2>
+
+<b>Active Learning</b> is a subset of machine learning in which the algorithm is designed to interactively query a human annotator (or another oracle) to label new data points. This approach is used to improve the model's performance with less labeled data, making it a cost-efficient method, particularly in cases where obtaining labeled data is expensive or time-consuming. This article will explain the concept of active learning, its strategies, advantages, and real-world applications.
+
+<h2>1. What is Active Learning?</h2>
+In traditional machine learning, the model is trained using a large, labeled dataset. However, in many real-world cases, acquiring labeled data is costly. Active learning provides a solution by allowing the model to ask for labels of only the most informative samples from the dataset, rather than labeling the entire dataset.
+
+The underlying idea is that not all data points contribute equally to learning. By selecting only the most informative or uncertain samples, active learning minimizes the amount of labeled data required to achieve high performance.
+
+<h2>2. How Active Learning Works?</h2>
+Active learning typically operates in an iterative cycle. The model is trained on a small set of labeled data, and then it selects a subset of the most informative unlabeled data points for labeling. The newly labeled data is added to the training set, and the process repeats. This approach allows the model to improve progressively while using fewer labeled examples.
+
+<h2>3. Strategies for Active Learning</h2>
+
+There are several strategies used in active learning to select the most informative samples for labeling:
+
+- <b>Uncertainty Sampling:</b>In uncertainty sampling, the model selects samples about which it is least confident. For example, in a binary classification task, the model may choose samples that have a predicted probability close to 0.5 for each class.
+- <b>Query-by-Committee:</b> This method involves training multiple models (the "committee") and selecting samples for which the models disagree the most. The disagreement indicates that the models are uncertain about how to classify those samples.
+- <b>Diversity Sampling:</b> In diversity sampling, the model selects a diverse set of samples to ensure that different parts of the data space are covered, preventing the model from overfitting to a specific subset of data.
+
+<h2>4. Advantages of Active Learning</h2>
+
+Active learning provides several key advantages, particularly in scenarios where labeling data is expensive or time-consuming:
+
+- <b>Efficiency:</b> Active learning reduces the amount of labeled data needed by focusing on the most informative samples. This makes the labeling process more efficient and cost-effective.
+- <b>Improved Model Performance:</b> By selectively labeling the most useful data points, active learning can improve the model's accuracy and generalization ability with fewer labeled examples.
+- <b>Cost-Effective:</b> In industries where labeling is expensive (e.g., medical images, legal documents), active learning helps reduce costs by minimizing the amount of labeled data needed for training.
+
+
+<h2>5. Real-World Applications of Active Learning</h2>
+
+Active learning is applied in a wide range of fields where labeling is expensive or time-sensitive:
+
+- <b>Medical Imaging:</b> In healthcare, labeling medical images (e.g., X-rays, MRI scans) requires expert knowledge. Active learning helps doctors label only the most uncertain cases, reducing the amount of time and effort needed to train diagnostic models.
+- <b>Natural Language Processing (NLP):</b> In NLP tasks, such as sentiment analysis or entity recognition, active learning can be used to select the most ambiguous sentences for labeling, improving the model with fewer labeled samples.
+- <b>Autonomous Driving:</b> In self-driving car systems, active learning can be applied to select uncertain driving scenarios (e.g., difficult road conditions) for human labeling, helping to improve the model's robustness.
+
+  
+<h2>6. Challenges in Active Learning</h2>
+
+While active learning offers many benefits, it also presents challenges:
+
+- <b>Selection Bias:</b> If the model consistently selects certain types of samples for labeling, it can introduce bias into the training data. Ensuring diversity in sample selection is important to avoid this issue.
+- <b>Cold Start Problem:</b> In the early stages of training, the model may not be able to accurately estimate which samples are most informative, leading to suboptimal sample selection.
+- <b>Computational Overhead:</b> Active learning requires the model to evaluate many unlabeled samples to determine which ones to query, which can add computational overhead compared to passive learning.
+
+<h2>7. Conclusion</h2>
+<b>Active learning</b> is a powerful strategy that allows machine learning models to achieve high performance with less labeled data by intelligently selecting the most informative samples for labeling. It is especially useful in scenarios where labeling is costly or time-consuming. Despite its challenges, active learning continues to play a significant role in improving the efficiency of machine learning systems in industries ranging from healthcare to autonomous vehicles.
+
+
+<h1>AdaGrad</h1>
+<h2>AdaGrad: Adaptive Gradient Algorithm</h2>
+
+<b>AdaGrad</b>, short for Adaptive Gradient Algorithm, is an optimization algorithm used in machine learning and deep learning for gradient-based optimization. Introduced in 2011, AdaGrad adapts the learning rate for each parameter by scaling it inversely proportional to the square root of the sum of all historical gradients. This results in a model that converges faster for sparse data and helps improve performance in scenarios with high-dimensional data. This article explores how AdaGrad works, its advantages, disadvantages, and its role in modern optimization techniques.
+
+<h2>1. What is AdaGrad?</h2>
+The AdaGrad algorithm is designed to handle the issue of learning rate decay in gradient descent optimization. Traditional gradient descent uses a constant learning rate throughout the training process, which can be suboptimal for datasets with varying features or for sparse datasets. AdaGrad adjusts the learning rate dynamically, allowing more frequent updates for less frequently occurring features.
+
+<h2>2. How Does AdaGrad Work?</h2>
+
+AdaGrad adapts the learning rate based on past gradients of each parameter, effectively assigning smaller learning rates to parameters associated with frequent features and larger learning rates to those associated with rare features.
+
+<center>![image](https://github.com/user-attachments/assets/78ce78a9-7007-4600-982c-fe2a4c5caa46) </center>
+
+Where:
+
+- `θt`  is the parameter at time step 
+- `η` is the initial learning rate
+- `Gt`  is the sum of the squares of the gradients at time 
+- `ϵ` is a small smoothing term to prevent division by zero
+
+<h2>3. Key Features of AdaGrad</h2>
+
+- <b>Per-parameter Learning Rate:</b> AdaGrad adapts the learning rate for each parameter, giving it a unique learning rate based on how frequently that parameter's gradient has been updated.
+- <b>Decreasing Learning Rate:</b> As training progresses, the learning rate decreases for frequently updated parameters, which can prevent the model from over-adjusting and helps in better convergence.
+- <b>Effective for Sparse Data:</b> AdaGrad excels in scenarios where data is sparse, as it increases the learning rate for rare features, which might otherwise be under-represented in updates.
+
+
+<h2>4. Advantages of AdaGrad</h2>
+
+AdaGrad brings several advantages to the table, particularly for tasks involving sparse datasets or high-dimensional feature spaces:
+
+- <b>Automatic Adjustment of Learning Rates:</b> The algorithm automatically adjusts the learning rate for each parameter, reducing the need for manual tuning of learning rates.
+- <b>Improved Convergence for Sparse Data:</b> Since AdaGrad adapts learning rates, it works particularly well with sparse data by making frequent updates to rare features and scaling updates for frequent ones.
+- <b>Simplicity of Use:</b> AdaGrad is relatively easy to implement and doesn’t require complex tuning parameters beyond the initial learning rate.
+
+
+
+<h2>5. Limitations of AdaGrad</h2>
+
+Despite its advantages, AdaGrad has some limitations:
+
+- <b>Learning Rate Decay:</b> One of the biggest drawbacks of AdaGrad is that its learning rate can decay too quickly. As Gt  grows with each iteration, the learning rate can become so small that the model stops learning before reaching convergence.
+- <b>Memory Intensive:</b> AdaGrad requires storing the sum of the squared gradients for each parameter, which can be memory-intensive, especially for models with a large number of parameters.
+
+
+<h2>6. AdaGrad Variants</h2>
+
+To overcome some of AdaGrad’s limitations, several variants have been developed:
+
+- <b>AdaDelta: </b>AdaDelta modifies AdaGrad by limiting the window of accumulated past gradients, preventing the learning rate from decaying too quickly.
+- <b>RMSProp: </b>RMSProp divides the accumulated squared gradients by an exponentially decaying average, allowing the model to continue learning for a longer period and preventing rapid learning rate decay.
+
+
+<h2>7. Conclusion</h2>
+
+<b>AdaGrad</b> is a powerful optimization algorithm that introduces adaptive learning rates to improve gradient-based optimization, especially for models dealing with sparse data or large-scale feature spaces. While it has limitations, such as learning rate decay, its principles form the foundation for more advanced optimizers like AdaDelta and RMSProp. Understanding AdaGrad can help practitioners build more efficient models by utilizing adaptive learning rates to handle varying feature frequencies within datasets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
