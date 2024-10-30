@@ -236,7 +236,8 @@ The AdaGrad algorithm is designed to handle the issue of learning rate decay in 
 
 AdaGrad adapts the learning rate based on past gradients of each parameter, effectively assigning smaller learning rates to parameters associated with frequent features and larger learning rates to those associated with rare features.
 
-<center>![image](https://github.com/user-attachments/assets/78ce78a9-7007-4600-982c-fe2a4c5caa46) </center>
+<enter> ![image](https://github.com/user-attachments/assets/e99cac3f-e444-4f51-bd9f-62f678d142aa)
+</center>
 
 Where:
 
