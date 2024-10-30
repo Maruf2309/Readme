@@ -84,7 +84,7 @@ Actions in reinforcement learning can generally be classified into two broad cat
 - <b>Continuous Actions:</b> Continuous action spaces contain a range of possible values for each action. This is common in environments like autonomous driving or robotic control, where actions like turning angles or accelerations are not confined to discrete steps but instead vary continuously.
 
 <h3>3. How Actions are Selected</h3>
-![image](https://github.com/user-attachments/assets/a8e0d7a7-e21f-4f6d-9a0b-c08b341044ee)
+The process by which an agent selects an action is determined by its policy π(a∣s), which maps the current state s to an action a. There are two primary ways in which actions are selected:
 
 - <b>Deterministic Policy:</b> In this scenario, for every state s, the agent always selects the same action a. This type of policy is useful when the environment is fully known and predictable.
 - <b>Stochastic Policy:</b> With a stochastic policy, the agent selects actions based on probabilities. In this case, there is a probability distribution over the available actions, and the agent chooses an action according to these probabilities.
